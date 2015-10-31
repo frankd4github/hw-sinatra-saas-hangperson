@@ -42,6 +42,12 @@ class HangpersonGame
     return result
   end
   
+  def check_win_or_lose
+    return :win if @word.chars.uniq.length == @guesses.length
+    return :lose if @wrong_guesses.length >= 7
+    return :play
+  end
+  
   def self.get_random_word
     require 'uri'
     require 'net/http'
