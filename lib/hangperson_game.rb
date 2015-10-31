@@ -31,15 +31,8 @@ class HangpersonGame
   end
   
   def word_with_guesses
-    result = ''
-    @word.each_char do |letter|
-      if @guesses.include? letter
-        result << letter
-      else
-        result << '-'
-      end
-    end
-    return result
+    not_yet_guessed = (@word.chars - @guesses.chars).uniq.reduce('', :+)
+    @word.tr not_yet_guessed, '-'
   end
   
   def check_win_or_lose
