@@ -47,7 +47,7 @@ class HangpersonApp < Sinatra::Base
       redirect '/show'
     else
       if not guess_result
-        flash[:message] = 'You have already used that'
+        flash[:message] = 'You have already used that letter'
       end
     end
     ### end added code ###    
